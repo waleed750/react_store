@@ -1,13 +1,26 @@
+// File: src/pages/CartPage.tsx
 import { useCart } from '../context/CartContext';
 import { Minus, Plus, Trash2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function CartPage() {
-  const { cart, updateQuantity, removeFromCart } = useCart();
+  const { cart, updateQuantity, removeFromCart, clearCart } = useCart();
   const total = cart.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0);
 
   return (
     <div className="min-h-screen p-6 bg-white text-gray-800">
-      <h1 className="text-2xl font-bold mb-6">Your Cart</h1>
+      <div className="flex items-center justify-between mb-6">
+        <h1 className="text-2xl font-bold">Your Cart</h1>
+        <div className="flex items-center gap-4">
+          <span className="text-sm text-gray-600">📍 Riyadh, Saudi Arabia</span>
+          <button
+            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+            onClick={() => clearCart()}
+          >
+            Clear Cart
+          </button>
+        </div>
+      </div>
 
       {cart.length === 0 ? (
         <p>Your cart is empty.</p>
@@ -52,6 +65,12 @@ export default function CartPage() {
           </div>
         </div>
       )}
+
+      <div className="mt-10 text-center">
+        <Link to="/" className="text-blue-600 hover:underline text-sm">
+          ← Back to Home
+        </Link>
+      </div>
     </div>
   );
 }

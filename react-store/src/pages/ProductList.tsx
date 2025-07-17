@@ -15,32 +15,7 @@ export default function ProductList() {
 
   return (
     <div className="min-h-screen bg-white text-gray-800">
-      {/* TOP NAVIGATION BAR */}
-      <nav className="border-b py-3">
-        <ul className="flex justify-center gap-6 text-sm uppercase font-medium">
-          {[
-            "New In",
-            "Shop By",
-            "Women",
-            "Men",
-            "Designers",
-            "Clothing",
-            "Shoes",
-            "Bags",
-            "Accessories",
-            "Jewellery",
-          ].map((item) => (
-            <li key={item} className="cursor-pointer hover:underline list-none">
-              {item}
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      {/* BLACK BAR */}
-      <div className="bg-black text-white text-sm font-semibold tracking-wide py-2 px-6">
-        ← MEN
-      </div>
+      
 
       {/* MAIN CONTENT AREA */}
       <div className="flex px-6 py-10 gap-10">
